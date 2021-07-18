@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <style>
+        .btn-success {
+            background-color: #A36FCE !important;
+            border-color: #9357C9 !important;
+        }
+        .btn-success:hover{
+            background-color: #9357C9 !important;
+        }
+        .btn-success:focus, .btn-success.focus, .btn-success:active, .btn-success:checked {
+            box-shadow: 0 0 0 .2rem rgb(163 111 206 / 0.75);
+        }
+        .btn-success:not(:disabled):not(.disabled):active:focus,
+        .btn-success:not(:disabled):not(.disabled).active:focus,
+        .show > .btn-success.dropdown-toggle:focus {
+            box-shadow: 0 0 0 .2rem rgb(163 111 206 / 0.75);
+        }
+        .btn-danger {
+            background-color: #CB6179 !important;
+            border-color: #C14E62 !important;
+        }
+        .btn-danger:hover{
+            background-color: #C14E62 !important;
+        }
+        .btn-danger:focus, .btn-danger.focus, .btn-danger:active, .btn-danger:checked {
+            box-shadow: 0 0 0 .2rem rgb(203 97 121 / 0.75);
+        }
+
+        .btn-danger:not(:disabled):not(.disabled):active:focus,
+        .btn-danger:not(:disabled):not(.disabled).active:focus,
+        .show > .btn-danger.dropdown-toggle:focus {
+            box-shadow: 0 0 0 .2rem rgb(203 97 121 / 0.75);
+        }
+        #punny {
+            position: absolute;
+            max-width: 12%;
+            top: 0;
+            left: 50px;
+            animation: moving 5s linear;
+        }
+        @@keyframes moving{
+            0%{
+                top:0;
+                left:50px;
+            }
+            40% {
+                top: 0;
+                left: 1150px;
+            }
+            50% {
+                top: 275px;
+                left: 1150px;
+            }
+            90% {
+                top: 275px;
+                left: 50px;
+            }
+            100% {
+                top: 0;
+                left: 50px;
+            }
+
+        }
+
+
+    </style>
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div class="container py-5 my-5">
+        @RenderBody()
+    </div>
+    
+</body>
+</html>

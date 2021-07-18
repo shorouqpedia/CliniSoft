@@ -1,0 +1,55 @@
+﻿@model ChildrenViewModel
+@{
+    ViewBag.Title = "Index";
+    var SelectedChildren = Model.SelectedChildrens;
+    var UnSelectedChildren = Model.UnSelectedChildrens;
+
+}
+
+<div class="row py-5 my-4 justify-content-center gap-5">
+    <div class="col-md-4 col-sm-12">
+        @using (Html.BeginForm("UnSelectChild", "Children", FormMethod.Post, new { name = "remove", onsubmit = "return fun()" }))
+        {
+            @*<h2>Selected</h2>*@
+            <select name="id" id="SelectList" class="form-control">
+                <option value="0">- select child name -</option>
+                @foreach (var child in SelectedChildren)
+                {
+                    <option value="@child.Id">@child.Name</option>
+                }
+            </select>
+            <input type="submit" class="btn btn-danger my-3" value="remove">
+        }
+    </div>
+    <div class="col-md-4 col-sm-12">
+        @using (Html.BeginForm("SelectChild", "Children", FormMethod.Post, new { name = "add" }))
+        {
+            @*<h2>Not Selected</h2>*@
+            <select name="id" id="UnSelectList" class="form-control">
+                <option value="0">- select child name -</option>
+                @foreach (var child in UnSelectedChildren)
+                {
+                    <option value="@child.Id">@child.Name</option>
+                }
+            </select>
+            <input type="submit" class="btn btn-success my-3" value="Welcome">
+        }
+    </div>
+</div>
+@if (TempData["welcome"] != null)
+{
+    <img src="~/Content/images/little-bunny-fly-with-3-balloon_68695-181.jpg" id="punny" />
+    <audio controls="controls" id="BD" hidden>
+        <source src="~/Content/sounds/Happy_Birthday_Song.mp3" type="audio/mpeg" />
+    </audio>
+    <script type="text/javascript">
+        const img = document.getElementById("punny");
+        const aud = document.getElementById("BD");
+        aud.play();
+            setTimeout(function () {
+                img.style.display = "none";
+                console.log("ddd");
+                aud.pause();
+            }, 5000);
+    </script>
+}
